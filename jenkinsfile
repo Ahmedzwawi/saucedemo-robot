@@ -22,7 +22,7 @@ pipeline {
         stage('Run Tests') {
             steps {
                 script {
-                    sh 'python -m robot tests/login_templatecopy.robot'
+                    sh 'python -m robot tests\login_templatecopy.robot'
                 }
             }
         }
