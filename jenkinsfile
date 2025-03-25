@@ -11,6 +11,12 @@ pipeline {
     environment {
         SELENIUM_GRID_URL = "http://192.168.1.55:4444/wd/hub"
     }
+     services {
+        selenium-hub {
+            image 'selenium/standalone-chrome'
+            ports = ['4444:4444']
+        }
+    }
 
     stages {
                stage('Install Dependencies') {
@@ -25,6 +31,7 @@ pipeline {
         stage('Run Tests') {
             steps {
                 script {
+                    sh 'echo "SELENIUM_GRID_URL: $SELENIUM_GRID_URL"'
                    // sh '.venv/Scripts/activate.ps1'
                     sh 'pip install robotframework'
                     // sh ' .venv/Scripts/Activate.ps1 '
