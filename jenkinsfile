@@ -3,35 +3,36 @@ pipeline {
         docker {
             image 'python:3.9-slim'
             args '-u root:root'
+
+
         }
     }
 
     environment {
         SELENIUM_GRID_URL = "http://192.168.1.55:4444/wd/hub"
+        VENV_DIR = ".venv"
     }
 
     stages {
-        stage('Setup Virtual Environment') {
+               stage('Install Dependencies') {
             steps {
-                powershell 'python -m venv .venv'
-            }
-        }
+                . $VENV_DIR/bin/activate
+                sh 'pip install -r requirements.txt'
+                sh 'pip freeze'
 
-        stage('Install Dependencies') {
-            steps {
-                powershell '.venv\\Scripts\\Activate.ps1; pip install -r requirements.txt'
-            }
-        }
-
-        stage('Check Installation') {
-            steps {
-                powershell '.venv\\Scripts\\Activate.ps1; python -m robot --version'
-            }
+             }
         }
 
         stage('Run Tests') {
             steps {
-                powershell '.venv\\Scripts\\Activate.ps1; robot tests/'
+                script {
+                    . $VENV_DIR/bin/activate
+
+                    sh 'pip install robotframework'
+                    // sh ' .venv/Scripts/Activate.ps1 '
+                    sh 'robot --version'
+                    sh 'python -m robot tests/login_templatecopy.robot'
+                }
             }
         }
     }
