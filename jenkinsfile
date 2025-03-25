@@ -3,8 +3,6 @@ pipeline {
         docker {
             image 'python:3.9-slim'
             args '-u root:root'
-
-
         }
     }
 
@@ -13,22 +11,27 @@ pipeline {
     }
 
     stages {
-               stage('Install Dependencies') {
+        stage('Setup Virtual Environment') {
             steps {
-                sh 'pip install -r requirements.txt'
-                sh 'pip freeze'
+                powershell 'python -m venv .venv'
+            }
+        }
 
-             }
+        stage('Install Dependencies') {
+            steps {
+                powershell '.venv\\Scripts\\Activate.ps1; pip install -r requirements.txt'
+            }
+        }
+
+        stage('Check Installation') {
+            steps {
+                powershell '.venv\\Scripts\\Activate.ps1; python -m robot --version'
+            }
         }
 
         stage('Run Tests') {
             steps {
-                script {
-                    sh 'pip install robotframework'
-                    // sh ' .venv/Scripts/Activate.ps1 '
-                    sh 'robot --version'
-                    sh 'python -m robot tests/login_templatecopy.robot'
-                }
+                powershell '.venv\\Scripts\\Activate.ps1; robot tests/'
             }
         }
     }
