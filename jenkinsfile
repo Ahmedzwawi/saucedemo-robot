@@ -12,7 +12,7 @@ pipeline {
     stages {
                stage('Install Dependencies') {
             steps {
-                sh 'sudo pip install -r requirements.txt'
+                sh 'pip install --no-cache-dir --user --install-option="--prefix=/tmp" -r requirements.txt'
             }
         }
 
