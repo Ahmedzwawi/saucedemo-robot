@@ -28,7 +28,7 @@ pipeline {
                    // sh '.venv/Scripts/activate.ps1'
                     sh 'pip install robotframework'
                     // sh ' .venv/Scripts/Activate.ps1 '
-                    sh 'robot --version'
+                    // sh 'robot --version'
                     sh 'python -m robot tests/login_templatecopy.robot'
                 }
             }
