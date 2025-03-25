@@ -1,7 +1,7 @@
 pipeline {
     agent {
         docker {
-            image 'python:3.9-slim' // Correction de l'image Docker
+            image 'python:3.9-slim'
         }
     }
 
@@ -12,11 +12,7 @@ pipeline {
     stages {
                stage('Install Dependencies') {
             steps {
-                sh '''
-                    apt-get update && apt-get install -y unzip curl
-                    pip install --upgrade pip
-                    pip install -r requirements.txt
-                '''
+                sh 'pip install -r requirements.txt'
             }
         }
 
