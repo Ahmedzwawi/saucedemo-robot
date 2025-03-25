@@ -16,7 +16,7 @@ pipeline {
     stages {
                stage('Install Dependencies') {
             steps {
-                    sh 'C:/Users/Admin/Downloads/saucedemo-robot/.venv/Scripts/Activate.ps1'
+                    sh '. $VENV_DIR/bin/activate'
                 sh 'pip install -r requirements.txt'
                 sh 'pip freeze'
 
@@ -26,7 +26,7 @@ pipeline {
         stage('Run Tests') {
             steps {
                 script {
-                    sh 'C:/Users/Admin/Downloads/saucedemo-robot/.venv/Scripts/Activate.ps1'
+                    sh '. $VENV_DIR/bin/activate'
                     sh 'pip install robotframework'
                     // sh ' .venv/Scripts/Activate.ps1 '
                     sh 'robot --version'
