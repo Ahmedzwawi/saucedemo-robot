@@ -2,9 +2,6 @@ pipeline {
     agent {
         docker {
             image 'python:3.9-slim'
-            args '-u root:root'
-
-
         }
     }
 
@@ -13,18 +10,25 @@ pipeline {
     }
 
     stages {
-               stage('Install Dependencies') {
+        stage('Install Dependencies') {
             steps {
-                sh 'pip install -r requirements.txt'
-             }
+                sh '''
+                    # Devenir superutilisateur
+                    apt-get update && apt-get install -y sudo
+                    sudo pip install -r requirements.txt
+                '''
+            }
         }
 
         stage('Run Tests') {
             steps {
                 script {
-                    sh 'python -m robot --variable SELENIUM_GRID_URL:${SELENIUM_GRID_URL} tests/login_templatecopy.robot'
+                    sh '''
+                        python -m robot --variable SELENIUM_GRID_URL:${SELENIUM_GRID_URL} tests/login_templatecopy.robot
+                    '''
                 }
             }
         }
     }
 }
+
