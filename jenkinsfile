@@ -16,7 +16,7 @@ pipeline {
     stages {
                stage('Install Dependencies') {
             steps {
-                .$VENV_DIR/bin/activate
+                sh '. $VENV_DIR/bin/activate'
                 sh 'pip install -r requirements.txt'
                 sh 'pip freeze'
 
@@ -26,8 +26,7 @@ pipeline {
         stage('Run Tests') {
             steps {
                 script {
-                    .$VENV_DIR/bin/activate
-
+                    sh '. $VENV_DIR/bin/activate'
                     sh 'pip install robotframework'
                     // sh ' .venv/Scripts/Activate.ps1 '
                     sh 'robot --version'
