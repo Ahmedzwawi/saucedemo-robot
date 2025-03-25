@@ -1,0 +1,42 @@
+pipeline {
+    agent {
+        docker {
+            image 'python:2-slim'
+        }
+    }
+
+    environment {
+        SELENIUM_GRID_URL = "http://192.168.1.55:4444"
+    }
+
+    stages {
+               stage('Install Dependencies') {
+            steps {
+                    sh 'pip install -r requirements.txt'
+            }
+        }
+
+         stage('Run Tests') {
+            steps {
+                script {
+                    sh '''
+                    robot  -d reports tests/
+                    '''
+                }
+            }
+        }
+
+        stage('Run Selenium Tests') {
+            steps {
+                sh 'mvn test -Dselenium.grid.url=$SELENIUM_GRID_URL'
+            }
+        }
+        stage('Generate Allure Report') {
+             steps {
+                 sh 'mvn allure:report'
+             }
+         }
+ 
+    }
+
+   
