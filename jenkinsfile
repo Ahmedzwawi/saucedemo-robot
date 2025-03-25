@@ -2,6 +2,7 @@ pipeline {
     agent {
         docker {
             image 'python:3.9-slim'
+            
         }
     }
 
@@ -12,8 +13,8 @@ pipeline {
     stages {
                stage('Install Dependencies') {
             steps {
-                sh 'pip install --no-cache-dir --user --install-option="--prefix=/tmp" -r requirements.txt'
-            }
+                sh 'pip install -r requirements.txt'
+             }
         }
 
         stage('Run Tests') {
