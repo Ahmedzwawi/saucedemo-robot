@@ -3,8 +3,6 @@ pipeline {
         docker {
             image 'python:3.9-slim'
             args '--network=host'  // Permet d'accéder à Selenium Grid
-
-
         }
     }
 
@@ -12,26 +10,32 @@ pipeline {
         SELENIUM_GRID_URL = "http://192.168.1.55:4444/wd/hub"
     }
 
-
     stages {
-               stage('Install Dependencies') {
-                    steps {
-                        sh 'python -m venv .venv && source .venv/bin/activate'
-                        sh 'pip install -r requirements.txt'
-    }
-}
+        stage('Setup Virtual Environment') {
+            steps {
+                script {
+                    sh 'python -m venv .venv'
+                    sh 'source .venv/bin/activate'
+                }
+            }
+        }
 
-        
+        stage('Install Dependencies') {
+            steps {
+                script {
+                    sh '.venv/bin/python -m pip install --upgrade pip'
+                    sh '.venv/bin/pip install -r requirements.txt || pip install --user -r requirements.txt'
+                    sh '.venv/bin/pip freeze'
+                }
+            }
+        }
 
         stage('Run Tests') {
             steps {
                 script {
                     sh 'echo "SELENIUM_GRID_URL: $SELENIUM_GRID_URL"'
-                   // sh '.venv/Scripts/activate.ps1'
-                    sh 'pip install robotframework'
-                    // sh ' .venv/Scripts/Activate.ps1 '
-                    // sh 'robot --version'
-                    sh 'python -m robot tests/login_templatecopy.robot'
+                    sh '.venv/bin/python -m pip install robotframework' // Assure que Robot Framework est installé
+                    sh '.venv/bin/python -m robot tests/login_templatecopy.robot'
                 }
             }
         }
