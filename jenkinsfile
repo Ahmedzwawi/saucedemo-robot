@@ -15,12 +15,12 @@ pipeline {
 
     stages {
                stage('Install Dependencies') {
-            steps {
-                   // sh '.venv/Scripts/activate.ps1'
-                sh 'pip install -r requirements.txt'
-                sh 'pip freeze'
+                    steps {
+                        sh 'python -m venv .venv && source .venv/bin/activate'
+                        sh 'pip install -r requirements.txt'
+    }
+}
 
-             }
         }
 
         stage('Run Tests') {
