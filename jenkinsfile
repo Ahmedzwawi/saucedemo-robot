@@ -1,7 +1,7 @@
 pipeline {
     agent {
         docker {
-            image 'python:3.9-slim'
+            image 'ppodgorsek/robot-framework'
             args '--network=host'  // Permet d'accéder à Selenium Grid
 
 
