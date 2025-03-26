@@ -15,7 +15,7 @@ Test Teardown    Close Browser
 Login with valid credentials
     [Documentation]    login avec valid cred
     [Tags]    login    smoke
-    Open Browser    https://www.saucedemo.com/    firefox
+    Open Browser    https://www.saucedemo.com/    Chrome
     Saisir user-name    ${USER}
     Saisir password    ${MDP}
     Cliquer sur login
@@ -25,7 +25,7 @@ Login with valid credentials
 Login with invalid credentials
     [Documentation]    login avec valid cred
     [Tags]    login    smoke
-    Open Browser    https://www.saucedemo.com/    firefox
+    Open Browser    https://www.saucedemo.com/    Chrome
     Saisir user-name    ${USER}
     Input Password    id:password    bhbhbuiknjpllj
     Cliquer sur login
@@ -33,6 +33,6 @@ Login with invalid credentials
      [Teardown]    Close Browser
 excute avant chaque test
     Log To Console    Hello there avant chaque test
-    Open Browser    https://www.saucedemo.com/    firefox    remote_url=http://192.168.1.55:4444/wd/hub
+    Open Browser    https://www.saucedemo.com/    Chrome    remote_url=http://192.168.1.55:4444/wd/hub
     Close All Browsers
     
