@@ -24,9 +24,9 @@ pipeline {
         stage('Run Tests') {
             steps {
                 script {
-                    sh 'echo "SELENIUM_GRID_URL: $SELENIUM_GRID_URL"'
+                    // sh 'echo "SELENIUM_GRID_URL: $SELENIUM_GRID_URL"'
                    // sh '.venv/Scripts/activate.ps1'
-                    sh 'pip install robotframework'
+                    // sh 'pip install robotframework'
                     // sh ' .venv/Scripts/Activate.ps1 '
                     // sh 'robot --version'
                     sh 'python3 -m robot tests/login.robot'                    
