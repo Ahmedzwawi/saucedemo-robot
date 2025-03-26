@@ -18,8 +18,6 @@ pipeline {
             steps {
                    // sh '.venv/Scripts/activate.ps1'
                 sh 'pip install --user -r requirements.txt'
-                sh 'pip freeze'
-
              }
         }
 
@@ -31,7 +29,7 @@ pipeline {
                     sh 'pip install robotframework'
                     // sh ' .venv/Scripts/Activate.ps1 '
                     // sh 'robot --version'
-                    sh 'python -m robot tests/login_templatecopy.robot'                    
+                    sh 'python3 -m robot tests/login_templatecopy.robot'                    
                 }
             }
         }
