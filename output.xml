@@ -1,31 +1,31 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 7.2.2 (Python 3.13.1 on win32)" generated="2025-03-26T11:46:58.604806" rpa="false" schemaversion="5">
+<robot generator="Robot 7.2.2 (Python 3.13.1 on win32)" generated="2025-03-26T12:34:33.773570" rpa="false" schemaversion="5">
 <suite id="s1" name="Login Templatecopy" source="c:\Users\Admin\Downloads\saucedemo-robot\tests\login_templatecopy.robot">
-<test id="s1-t1" name="excute avant chaque test" line="34">
+<test id="s1-t1" name="excute avant chaque test" line="27">
 <kw name="Log To Console" owner="BuiltIn">
 <arg>Hello there avant chaque test</arg>
 <doc>Logs the given message to the console.</doc>
-<status status="PASS" start="2025-03-26T11:46:59.065738" elapsed="0.000802"/>
+<status status="PASS" start="2025-03-26T12:34:34.115948" elapsed="0.000969"/>
 </kw>
 <kw name="Open Browser" owner="SeleniumLibrary">
-<msg time="2025-03-26T11:46:59.070176" level="INFO">Opening browser 'Chrome' to base url 'https://www.saucedemo.com/' through remote server at 'http://192.168.1.55:4444/wd/hub'.</msg>
+<msg time="2025-03-26T12:34:34.118596" level="INFO">Opening browser 'firefox' to base url 'https://www.saucedemo.com/' through remote server at 'http://192.168.1.55:4444/wd/hub'.</msg>
 <arg>https://www.saucedemo.com/</arg>
-<arg>Chrome</arg>
+<arg>firefox</arg>
 <arg>remote_url=http://192.168.1.55:4444/wd/hub</arg>
 <doc>Opens a new browser instance to the optional ``url``.</doc>
-<status status="PASS" start="2025-03-26T11:46:59.068939" elapsed="1.158349"/>
+<status status="PASS" start="2025-03-26T12:34:34.117885" elapsed="3.752081"/>
 </kw>
 <kw name="Close All Browsers" owner="SeleniumLibrary">
 <doc>Closes all open browsers and resets the browser cache.</doc>
-<status status="PASS" start="2025-03-26T11:47:00.228117" elapsed="0.178905"/>
+<status status="PASS" start="2025-03-26T12:34:37.870729" elapsed="0.694045"/>
 </kw>
 <kw name="Close Browser" owner="SeleniumLibrary" type="TEARDOWN">
 <doc>Closes the current browser.</doc>
-<status status="PASS" start="2025-03-26T11:47:00.408873" elapsed="0.000867"/>
+<status status="PASS" start="2025-03-26T12:34:38.567583" elapsed="0.000714"/>
 </kw>
-<status status="PASS" start="2025-03-26T11:46:59.063656" elapsed="1.347264"/>
+<status status="PASS" start="2025-03-26T12:34:34.114269" elapsed="4.454849"/>
 </test>
-<status status="PASS" start="2025-03-26T11:46:58.610509" elapsed="1.803928"/>
+<status status="PASS" start="2025-03-26T12:34:33.779479" elapsed="4.792313"/>
 </suite>
 <statistics>
 <total>
