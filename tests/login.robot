@@ -30,5 +30,5 @@ Login with invalid credentials
     [Teardown]    Close Browser
 excute avant chaque test
     Log To Console    Hello there avant chaque test
-    Open Browser    https://www.saucedemo.com/    Firefox    options=${BROWSER_OPTIONS}    remote_url=http://192.168.1.55:4444/wd/hub
+    Open Browser    https://www.saucedemo.com/    Chrome    options=${BROWSER_OPTIONS}    remote_url=http://192.168.1.55:4444/wd/hub
     Close All Browsers
