@@ -2,12 +2,14 @@
 Library    SeleniumLibrary
 Resource   ../pages/resource.resource 
 Variables  ../data/login_data.py
+Test Setup        Open Browser    https://www.saucedemo.com/    firefox    remote_url=http://192.168.1.55:4444/wd/hub
+
 
 *** Test Cases ***
 Login with valid credentials
     [Documentation]    login avec valid cred
     [Tags]    login    smoke
-    Open Browser    https://www.saucedemo.com/    firefox    remote_url=http://192.168.1.55:4444/wd/hub
+    # Open Browser    https://www.saucedemo.com/    firefox    remote_url=http://192.168.1.55:4444/wd/hub
     Saisir user-name    ${USER}
     Saisir password    ${MDP}
     Cliquer sur login
@@ -17,7 +19,7 @@ Login with valid credentials
 Login with invalid credentials
     [Documentation]    login avec valid cred
     [Tags]    login    smoke
-    Open Browser    https://www.saucedemo.com/    firefox    remote_url=http://192.168.1.55:4444/wd/hub
+    # Open Browser    https://www.saucedemo.com/    firefox    remote_url=http://192.168.1.55:4444/wd/hub
     Saisir user-name    ${USER}
     Input Password    id:password    bhbhbuiknjpllj
     Cliquer sur login
