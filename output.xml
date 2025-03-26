@@ -1,226 +1,87 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 7.2.2 (Python 3.13.1 on win32)" generated="2025-03-25T14:50:44.088550" rpa="false" schemaversion="5">
-<suite id="s1" name="Login Templatecopy" source="C:\Users\Admin\Downloads\saucedemo-robot\tests\login_templatecopy.robot">
-<test id="s1-t1" name="Case 1" line="13">
-<kw name="excute avant chaque test" type="SETUP">
-<kw name="Log To Console" owner="BuiltIn">
-<arg>Hello there avant chaque test</arg>
-<doc>Logs the given message to the console.</doc>
-<status status="PASS" start="2025-03-25T14:50:44.574591" elapsed="0.000446"/>
-</kw>
+<robot generator="Robot 7.2.2 (Python 3.13.1 on win32)" generated="2025-03-26T11:29:27.697214" rpa="false" schemaversion="5">
+<suite id="s1" name="Login Templatecopy" source="c:\Users\Admin\Downloads\saucedemo-robot\tests\login_templatecopy.robot">
+<test id="s1-t1" name="Login with valid credentials" line="15">
 <kw name="Open Browser" owner="SeleniumLibrary">
-<msg time="2025-03-25T14:50:44.575521" level="INFO">Opening browser 'firefox' to base url 'https://www.saucedemo.com/' through remote server at 'http://localhost:4444/wd/hub'.</msg>
+<msg time="2025-03-26T11:29:28.288326" level="INFO">Opening browser 'Chrome' to base url 'https://www.saucedemo.com/'.</msg>
 <arg>https://www.saucedemo.com/</arg>
-<arg>firefox</arg>
-<arg>remote_url=http://localhost:4444/wd/hub</arg>
+<arg>Chrome</arg>
 <doc>Opens a new browser instance to the optional ``url``.</doc>
-<status status="PASS" start="2025-03-25T14:50:44.575302" elapsed="2.845150"/>
+<status status="PASS" start="2025-03-26T11:29:28.287485" elapsed="2.618776"/>
 </kw>
-<kw name="Close All Browsers" owner="SeleniumLibrary">
-<doc>Closes all open browsers and resets the browser cache.</doc>
-<status status="PASS" start="2025-03-25T14:50:47.420761" elapsed="0.604666"/>
+<kw name="Saisir user-name" owner="resource">
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-03-26T11:29:30.911324" level="INFO">Typing text 'standard_user' into text field 'id:user-name'.</msg>
+<arg>${LOCATOR_NAME}</arg>
+<arg>${username}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-03-26T11:29:30.910192" elapsed="0.182935"/>
 </kw>
-<status status="PASS" start="2025-03-25T14:50:44.573592" elapsed="3.452103"/>
+<arg>${USER}</arg>
+<status status="PASS" start="2025-03-26T11:29:30.908463" elapsed="0.184944"/>
 </kw>
-<kw name="afficher les donnees csv">
+<kw name="Saisir password" owner="resource">
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-03-26T11:29:31.095325" level="INFO">Typing text 'secret_sauce' into text field 'id:password'.</msg>
+<arg>${LOCATOR_MDP}</arg>
+<arg>${MDP}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-03-26T11:29:31.094848" elapsed="0.121439"/>
+</kw>
+<arg>${MDP}</arg>
+<status status="PASS" start="2025-03-26T11:29:31.094104" elapsed="0.122408"/>
+</kw>
+<kw name="Cliquer sur login" owner="resource">
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2025-03-26T11:29:31.218109" level="INFO">Clicking button 'id:login-button'.</msg>
+<arg>${LOCATOR_BUTTON}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2025-03-26T11:29:31.217534" elapsed="0.143188"/>
+</kw>
+<status status="PASS" start="2025-03-26T11:29:31.217033" elapsed="0.143929"/>
+</kw>
+<kw name="Verifier la page d'accueil" owner="resource">
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2025-03-26T11:29:31.393352" level="INFO">${text} = Products</msg>
+<var>${text}</var>
+<arg>class:title</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-03-26T11:29:31.362436" elapsed="0.031132"/>
+</kw>
+<kw name="Should Be Equal As Strings" owner="BuiltIn">
+<arg>${text}</arg>
+<arg>Products</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<status status="PASS" start="2025-03-26T11:29:31.393854" elapsed="0.000387"/>
+</kw>
 <kw name="Log To Console" owner="BuiltIn">
-<arg>${username} and ${password}</arg>
+<arg>${text}</arg>
 <doc>Logs the given message to the console.</doc>
-<status status="PASS" start="2025-03-25T14:50:48.027054" elapsed="0.000553"/>
+<status status="PASS" start="2025-03-26T11:29:31.394463" elapsed="0.000634"/>
 </kw>
-<return>
-<value>${username}</value>
-<value>${password}</value>
-<status status="PASS" start="2025-03-25T14:50:48.027725" elapsed="0.000094"/>
-</return>
-<arg>username=standard_user</arg>
-<arg>password=secret_sauce</arg>
-<status status="PASS" start="2025-03-25T14:50:48.026611" elapsed="0.001408"/>
+<status status="PASS" start="2025-03-26T11:29:31.361555" elapsed="0.034054"/>
 </kw>
 <kw name="Close Browser" owner="SeleniumLibrary" type="TEARDOWN">
 <doc>Closes the current browser.</doc>
-<status status="PASS" start="2025-03-25T14:50:48.028685" elapsed="0.000167"/>
+<status status="PASS" start="2025-03-26T11:29:31.397172" elapsed="2.183089"/>
 </kw>
-<status status="PASS" start="2025-03-25T14:50:44.571864" elapsed="3.457366"/>
+<doc>login avec valid cred</doc>
+<tag>login</tag>
+<tag>smoke</tag>
+<status status="PASS" start="2025-03-26T11:29:28.285848" elapsed="5.295460"/>
 </test>
-<test id="s1-t2" name="Case 2" line="13">
-<kw name="excute avant chaque test" type="SETUP">
-<kw name="Log To Console" owner="BuiltIn">
-<arg>Hello there avant chaque test</arg>
-<doc>Logs the given message to the console.</doc>
-<status status="PASS" start="2025-03-25T14:50:48.032367" elapsed="0.000664"/>
-</kw>
-<kw name="Open Browser" owner="SeleniumLibrary">
-<msg time="2025-03-25T14:50:48.033469" level="INFO">Opening browser 'firefox' to base url 'https://www.saucedemo.com/' through remote server at 'http://localhost:4444/wd/hub'.</msg>
-<arg>https://www.saucedemo.com/</arg>
-<arg>firefox</arg>
-<arg>remote_url=http://localhost:4444/wd/hub</arg>
-<doc>Opens a new browser instance to the optional ``url``.</doc>
-<status status="PASS" start="2025-03-25T14:50:48.033258" elapsed="2.717691"/>
-</kw>
-<kw name="Close All Browsers" owner="SeleniumLibrary">
-<doc>Closes all open browsers and resets the browser cache.</doc>
-<status status="PASS" start="2025-03-25T14:50:50.751369" elapsed="0.719842"/>
-</kw>
-<status status="PASS" start="2025-03-25T14:50:48.032057" elapsed="3.439472"/>
-</kw>
-<kw name="afficher les donnees csv">
-<kw name="Log To Console" owner="BuiltIn">
-<arg>${username} and ${password}</arg>
-<doc>Logs the given message to the console.</doc>
-<status status="PASS" start="2025-03-25T14:50:51.473352" elapsed="0.001232"/>
-</kw>
-<return>
-<value>${username}</value>
-<value>${password}</value>
-<status status="PASS" start="2025-03-25T14:50:51.474768" elapsed="0.000113"/>
-</return>
-<arg>username=problem_user</arg>
-<arg>password=secret_sauce</arg>
-<status status="PASS" start="2025-03-25T14:50:51.472451" elapsed="0.002712"/>
-</kw>
-<kw name="Close Browser" owner="SeleniumLibrary" type="TEARDOWN">
-<doc>Closes the current browser.</doc>
-<status status="PASS" start="2025-03-25T14:50:51.475838" elapsed="0.000243"/>
-</kw>
-<status status="PASS" start="2025-03-25T14:50:48.030803" elapsed="3.445672"/>
-</test>
-<test id="s1-t3" name="Case 3" line="13">
-<kw name="excute avant chaque test" type="SETUP">
-<kw name="Log To Console" owner="BuiltIn">
-<arg>Hello there avant chaque test</arg>
-<doc>Logs the given message to the console.</doc>
-<status status="PASS" start="2025-03-25T14:50:51.479619" elapsed="0.000405"/>
-</kw>
-<kw name="Open Browser" owner="SeleniumLibrary">
-<msg time="2025-03-25T14:50:51.480499" level="INFO">Opening browser 'firefox' to base url 'https://www.saucedemo.com/' through remote server at 'http://localhost:4444/wd/hub'.</msg>
-<arg>https://www.saucedemo.com/</arg>
-<arg>firefox</arg>
-<arg>remote_url=http://localhost:4444/wd/hub</arg>
-<doc>Opens a new browser instance to the optional ``url``.</doc>
-<status status="PASS" start="2025-03-25T14:50:51.480264" elapsed="2.820880"/>
-</kw>
-<kw name="Close All Browsers" owner="SeleniumLibrary">
-<doc>Closes all open browsers and resets the browser cache.</doc>
-<status status="PASS" start="2025-03-25T14:50:54.301400" elapsed="0.756587"/>
-</kw>
-<status status="PASS" start="2025-03-25T14:50:51.479146" elapsed="3.578979"/>
-</kw>
-<kw name="afficher les donnees csv">
-<kw name="Log To Console" owner="BuiltIn">
-<arg>${username} and ${password}</arg>
-<doc>Logs the given message to the console.</doc>
-<status status="PASS" start="2025-03-25T14:50:55.059190" elapsed="0.000526"/>
-</kw>
-<return>
-<value>${username}</value>
-<value>${password}</value>
-<status status="PASS" start="2025-03-25T14:50:55.059823" elapsed="0.000065"/>
-</return>
-<arg>username=performance_glitch_user</arg>
-<arg>password=secret_sauce</arg>
-<status status="PASS" start="2025-03-25T14:50:55.058730" elapsed="0.001360"/>
-</kw>
-<kw name="Close Browser" owner="SeleniumLibrary" type="TEARDOWN">
-<doc>Closes the current browser.</doc>
-<status status="PASS" start="2025-03-25T14:50:55.060675" elapsed="0.000130"/>
-</kw>
-<status status="PASS" start="2025-03-25T14:50:51.477615" elapsed="3.583608"/>
-</test>
-<test id="s1-t4" name="Case 4" line="13">
-<kw name="excute avant chaque test" type="SETUP">
-<kw name="Log To Console" owner="BuiltIn">
-<arg>Hello there avant chaque test</arg>
-<doc>Logs the given message to the console.</doc>
-<status status="PASS" start="2025-03-25T14:50:55.064746" elapsed="0.000573"/>
-</kw>
-<kw name="Open Browser" owner="SeleniumLibrary">
-<msg time="2025-03-25T14:50:55.066040" level="INFO">Opening browser 'firefox' to base url 'https://www.saucedemo.com/' through remote server at 'http://localhost:4444/wd/hub'.</msg>
-<arg>https://www.saucedemo.com/</arg>
-<arg>firefox</arg>
-<arg>remote_url=http://localhost:4444/wd/hub</arg>
-<doc>Opens a new browser instance to the optional ``url``.</doc>
-<status status="PASS" start="2025-03-25T14:50:55.065651" elapsed="2.739028"/>
-</kw>
-<kw name="Close All Browsers" owner="SeleniumLibrary">
-<doc>Closes all open browsers and resets the browser cache.</doc>
-<status status="PASS" start="2025-03-25T14:50:57.804945" elapsed="0.709927"/>
-</kw>
-<status status="PASS" start="2025-03-25T14:50:55.063603" elapsed="3.451424"/>
-</kw>
-<kw name="afficher les donnees csv">
-<kw name="Log To Console" owner="BuiltIn">
-<arg>${username} and ${password}</arg>
-<doc>Logs the given message to the console.</doc>
-<status status="PASS" start="2025-03-25T14:50:58.516154" elapsed="0.000465"/>
-</kw>
-<return>
-<value>${username}</value>
-<value>${password}</value>
-<status status="PASS" start="2025-03-25T14:50:58.516738" elapsed="0.000074"/>
-</return>
-<arg>username=locked_out_user</arg>
-<arg>password=secret_sauce</arg>
-<status status="PASS" start="2025-03-25T14:50:58.515722" elapsed="0.001265"/>
-</kw>
-<kw name="Close Browser" owner="SeleniumLibrary" type="TEARDOWN">
-<doc>Closes the current browser.</doc>
-<status status="PASS" start="2025-03-25T14:50:58.517507" elapsed="0.000141"/>
-</kw>
-<status status="PASS" start="2025-03-25T14:50:55.062296" elapsed="3.455759"/>
-</test>
-<test id="s1-t5" name="case 5" line="13">
-<kw name="excute avant chaque test" type="SETUP">
-<kw name="Log To Console" owner="BuiltIn">
-<arg>Hello there avant chaque test</arg>
-<doc>Logs the given message to the console.</doc>
-<status status="PASS" start="2025-03-25T14:50:58.520683" elapsed="0.000355"/>
-</kw>
-<kw name="Open Browser" owner="SeleniumLibrary">
-<msg time="2025-03-25T14:50:58.521643" level="INFO">Opening browser 'firefox' to base url 'https://www.saucedemo.com/' through remote server at 'http://localhost:4444/wd/hub'.</msg>
-<arg>https://www.saucedemo.com/</arg>
-<arg>firefox</arg>
-<arg>remote_url=http://localhost:4444/wd/hub</arg>
-<doc>Opens a new browser instance to the optional ``url``.</doc>
-<status status="PASS" start="2025-03-25T14:50:58.521303" elapsed="2.714098"/>
-</kw>
-<kw name="Close All Browsers" owner="SeleniumLibrary">
-<doc>Closes all open browsers and resets the browser cache.</doc>
-<status status="PASS" start="2025-03-25T14:51:01.235768" elapsed="0.733799"/>
-</kw>
-<status status="PASS" start="2025-03-25T14:50:58.520277" elapsed="3.449870"/>
-</kw>
-<kw name="afficher les donnees csv">
-<kw name="Log To Console" owner="BuiltIn">
-<arg>${username} and ${password}</arg>
-<doc>Logs the given message to the console.</doc>
-<status status="PASS" start="2025-03-25T14:51:01.972601" elapsed="0.000920"/>
-</kw>
-<return>
-<value>${username}</value>
-<value>${password}</value>
-<status status="PASS" start="2025-03-25T14:51:01.973782" elapsed="0.000128"/>
-</return>
-<arg>username=standard_user</arg>
-<arg>password=secret_sauce</arg>
-<status status="PASS" start="2025-03-25T14:51:01.971569" elapsed="0.002664"/>
-</kw>
-<kw name="Close Browser" owner="SeleniumLibrary" type="TEARDOWN">
-<doc>Closes the current browser.</doc>
-<status status="PASS" start="2025-03-25T14:51:01.975223" elapsed="0.000276"/>
-</kw>
-<status status="PASS" start="2025-03-25T14:50:58.519175" elapsed="3.456909"/>
-</test>
-<status status="PASS" start="2025-03-25T14:50:44.089946" elapsed="17.888205"/>
+<status status="PASS" start="2025-03-26T11:29:27.704091" elapsed="5.879039"/>
 </suite>
 <statistics>
 <total>
-<stat pass="5" fail="0" skip="0">All Tests</stat>
+<stat pass="1" fail="0" skip="0">All Tests</stat>
 </total>
 <tag>
+<stat pass="1" fail="0" skip="0">login</stat>
+<stat pass="1" fail="0" skip="0">smoke</stat>
 </tag>
 <suite>
-<stat name="Login Templatecopy" id="s1" pass="5" fail="0" skip="0">Login Templatecopy</stat>
+<stat name="Login Templatecopy" id="s1" pass="1" fail="0" skip="0">Login Templatecopy</stat>
 </suite>
 </statistics>
 <errors>
