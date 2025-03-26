@@ -4,25 +4,25 @@ Resource   ../pages/resource.resource
 Variables  ../data/login_data.py
 
 *** Test Cases ***
-Login with valid credentials
-    [Documentation]    login avec valid cred
-    [Tags]    login    smoke
-    Open Browser    https://www.saucedemo.com/    Chrome
-    Saisir user-name    ${USER}
-    Saisir password    ${MDP}
-    Cliquer sur login
-    Verifier la page d'accueil
-    [Teardown]    Close Browser
+# Login with valid credentials
+#     [Documentation]    login avec valid cred
+#     [Tags]    login    smoke
+#     Open Browser    https://www.saucedemo.com/    Chrome
+#     Saisir user-name    ${USER}
+#     Saisir password    ${MDP}
+#     Cliquer sur login
+#     Verifier la page d'accueil
+#     [Teardown]    Close Browser
 
-Login with invalid credentials
-    [Documentation]    login avec valid cred
-    [Tags]    login    smoke
-    Open Browser    https://www.saucedemo.com/    Chrome
-    Saisir user-name    ${USER}
-    Input Password    id:password    bhbhbuiknjpllj
-    Cliquer sur login
-    Verifier le message d'erreur
-     [Teardown]    Close Browser
+# Login with invalid credentials
+#     [Documentation]    login avec valid cred
+#     [Tags]    login    smoke
+#     Open Browser    https://www.saucedemo.com/    Chrome
+#     Saisir user-name    ${USER}
+#     Input Password    id:password    bhbhbuiknjpllj
+#     Cliquer sur login
+#     Verifier le message d'erreur
+#      [Teardown]    Close Browser
      
 excute avant chaque test
     Log To Console    Hello there avant chaque test

@@ -1,86 +1,33 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 7.2.2 (Python 3.13.1 on win32)" generated="2025-03-26T13:02:51.737116" rpa="false" schemaversion="5">
+<robot generator="Robot 7.2.2 (Python 3.13.1 on win32)" generated="2025-03-26T13:06:57.077156" rpa="false" schemaversion="5">
 <suite id="s1" name="Login" source="c:\Users\Admin\Downloads\saucedemo-robot\tests\login.robot">
-<test id="s1-t1" name="Login with invalid credentials" line="17">
+<test id="s1-t1" name="excute avant chaque test" line="27">
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Hello there avant chaque test</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-03-26T13:06:57.509400" elapsed="0.000605"/>
+</kw>
 <kw name="Open Browser" owner="SeleniumLibrary">
-<msg time="2025-03-26T13:02:52.107775" level="INFO">Opening browser 'firefox' to base url 'https://www.saucedemo.com/'.</msg>
+<msg time="2025-03-26T13:06:57.511154" level="INFO">Opening browser 'firefox' to base url 'https://www.saucedemo.com/' through remote server at 'http://192.168.1.55:4444/wd/hub'.</msg>
 <arg>https://www.saucedemo.com/</arg>
 <arg>firefox</arg>
+<arg>remote_url=http://192.168.1.55:4444/wd/hub</arg>
 <doc>Opens a new browser instance to the optional ``url``.</doc>
-<status status="PASS" start="2025-03-26T13:02:52.107359" elapsed="6.803787"/>
+<status status="PASS" start="2025-03-26T13:06:57.510715" elapsed="2.856465"/>
 </kw>
-<kw name="Saisir user-name" owner="resource">
-<kw name="Input Text" owner="SeleniumLibrary">
-<msg time="2025-03-26T13:02:58.915051" level="INFO">Typing text 'standard_user' into text field 'id:user-name'.</msg>
-<arg>${LOCATOR_NAME}</arg>
-<arg>${username}</arg>
-<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2025-03-26T13:02:58.914203" elapsed="0.243123"/>
+<kw name="Close All Browsers" owner="SeleniumLibrary">
+<doc>Closes all open browsers and resets the browser cache.</doc>
+<status status="PASS" start="2025-03-26T13:07:00.367893" elapsed="0.681959"/>
 </kw>
-<arg>${USER}</arg>
-<status status="PASS" start="2025-03-26T13:02:58.913192" elapsed="0.244421"/>
-</kw>
-<kw name="Input Password" owner="SeleniumLibrary">
-<msg time="2025-03-26T13:02:59.158645" level="INFO">Typing password into text field 'id:password'.</msg>
-<msg time="2025-03-26T13:02:59.174337" level="INFO">Temporally setting log level to: NONE</msg>
-<arg>id:password</arg>
-<arg>bhbhbuiknjpllj</arg>
-<doc>Types the given password into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2025-03-26T13:02:59.158209" elapsed="0.047091"/>
-</kw>
-<kw name="Cliquer sur login" owner="resource">
-<kw name="Click Button" owner="SeleniumLibrary">
-<msg time="2025-03-26T13:02:59.208380" level="INFO">Clicking button 'id:login-button'.</msg>
-<arg>${LOCATOR_BUTTON}</arg>
-<doc>Clicks the button identified by ``locator``.</doc>
-<status status="PASS" start="2025-03-26T13:02:59.207203" elapsed="0.248059"/>
-</kw>
-<status status="PASS" start="2025-03-26T13:02:59.206221" elapsed="0.249437"/>
-</kw>
-<kw name="Verifier le message d'erreur" owner="resource">
-<kw name="Get Text" owner="SeleniumLibrary">
-<msg time="2025-03-26T13:02:59.478241" level="INFO">${text} = Epic sadface: Username and password do not match any user in this service</msg>
-<var>${text}</var>
-<arg>${error_message}</arg>
-<doc>Returns the text value of the element identified by ``locator``.</doc>
-<status status="PASS" start="2025-03-26T13:02:59.457777" elapsed="0.020661"/>
-</kw>
-<kw name="Log To Console" owner="BuiltIn">
-<arg>'message: ${text}'</arg>
-<doc>Logs the given message to the console.</doc>
-<status status="PASS" start="2025-03-26T13:02:59.478663" elapsed="0.000597"/>
-</kw>
-<kw name="Should Be Equal As Strings" owner="BuiltIn">
-<arg>${text}</arg>
-<arg>Epic sadface: Username and password do not match any user in this service</arg>
-<doc>Fails if objects are unequal after converting them to strings.</doc>
-<status status="PASS" start="2025-03-26T13:02:59.479475" elapsed="0.000299"/>
-</kw>
-<kw name="Log To Console" owner="BuiltIn">
-<arg>${text}</arg>
-<doc>Logs the given message to the console.</doc>
-<status status="PASS" start="2025-03-26T13:02:59.479965" elapsed="0.000503"/>
-</kw>
-<status status="PASS" start="2025-03-26T13:02:59.456878" elapsed="0.023822"/>
-</kw>
-<kw name="Close Browser" owner="SeleniumLibrary" type="TEARDOWN">
-<doc>Closes the current browser.</doc>
-<status status="PASS" start="2025-03-26T13:02:59.481323" elapsed="3.166152"/>
-</kw>
-<doc>login avec valid cred</doc>
-<tag>login</tag>
-<tag>smoke</tag>
-<status status="PASS" start="2025-03-26T13:02:52.105931" elapsed="10.542977"/>
+<status status="PASS" start="2025-03-26T13:06:57.508258" elapsed="3.543259"/>
 </test>
-<status status="PASS" start="2025-03-26T13:02:51.743251" elapsed="10.910376"/>
+<status status="PASS" start="2025-03-26T13:06:57.082099" elapsed="3.972964"/>
 </suite>
 <statistics>
 <total>
 <stat pass="1" fail="0" skip="0">All Tests</stat>
 </total>
 <tag>
-<stat pass="1" fail="0" skip="0">login</stat>
-<stat pass="1" fail="0" skip="0">smoke</stat>
 </tag>
 <suite>
 <stat name="Login" id="s1" pass="1" fail="0" skip="0">Login</stat>
