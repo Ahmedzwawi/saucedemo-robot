@@ -22,15 +22,15 @@ Login with valid credentials
     Verifier la page d'accueil
     [Teardown]    Close Browser
 
-Login with invalid credentials
-    [Documentation]    login avec valid cred
-    [Tags]    login    smoke
-    Open Browser    https://www.saucedemo.com/    Chrome
-    Saisir user-name    ${USER}
-    Input Password    id:password    bhbhbuiknjpllj
-    Cliquer sur login
-    Verifier le message d'erreur
-     [Teardown]    Close Browser
+# Login with invalid credentials
+#     [Documentation]    login avec valid cred
+#     [Tags]    login    smoke
+#     Open Browser    https://www.saucedemo.com/    Chrome
+#     Saisir user-name    ${USER}
+#     Input Password    id:password    bhbhbuiknjpllj
+#     Cliquer sur login
+#     Verifier le message d'erreur
+#      [Teardown]    Close Browser
 excute avant chaque test
     Log To Console    Hello there avant chaque test
     Open Browser    https://www.saucedemo.com/    Chrome    remote_url=http://192.168.1.55:4444/wd/hub

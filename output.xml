@@ -1,76 +1,78 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 7.2.2 (Python 3.13.1 on win32)" generated="2025-03-26T11:29:27.697214" rpa="false" schemaversion="5">
+<robot generator="Robot 7.2.2 (Python 3.13.1 on win32)" generated="2025-03-26T11:35:17.163974" rpa="false" schemaversion="5">
 <suite id="s1" name="Login Templatecopy" source="c:\Users\Admin\Downloads\saucedemo-robot\tests\login_templatecopy.robot">
-<test id="s1-t1" name="Login with valid credentials" line="15">
+<test id="s1-t1" name="Login with invalid credentials" line="25">
 <kw name="Open Browser" owner="SeleniumLibrary">
-<msg time="2025-03-26T11:29:28.288326" level="INFO">Opening browser 'Chrome' to base url 'https://www.saucedemo.com/'.</msg>
+<msg time="2025-03-26T11:35:17.562436" level="INFO">Opening browser 'Chrome' to base url 'https://www.saucedemo.com/'.</msg>
 <arg>https://www.saucedemo.com/</arg>
 <arg>Chrome</arg>
 <doc>Opens a new browser instance to the optional ``url``.</doc>
-<status status="PASS" start="2025-03-26T11:29:28.287485" elapsed="2.618776"/>
+<status status="PASS" start="2025-03-26T11:35:17.561878" elapsed="1.586423"/>
 </kw>
 <kw name="Saisir user-name" owner="resource">
 <kw name="Input Text" owner="SeleniumLibrary">
-<msg time="2025-03-26T11:29:30.911324" level="INFO">Typing text 'standard_user' into text field 'id:user-name'.</msg>
+<msg time="2025-03-26T11:35:19.152012" level="INFO">Typing text 'standard_user' into text field 'id:user-name'.</msg>
 <arg>${LOCATOR_NAME}</arg>
 <arg>${username}</arg>
 <doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2025-03-26T11:29:30.910192" elapsed="0.182935"/>
+<status status="PASS" start="2025-03-26T11:35:19.150779" elapsed="0.189691"/>
 </kw>
 <arg>${USER}</arg>
-<status status="PASS" start="2025-03-26T11:29:30.908463" elapsed="0.184944"/>
+<status status="PASS" start="2025-03-26T11:35:19.149558" elapsed="0.192022"/>
 </kw>
-<kw name="Saisir password" owner="resource">
-<kw name="Input Text" owner="SeleniumLibrary">
-<msg time="2025-03-26T11:29:31.095325" level="INFO">Typing text 'secret_sauce' into text field 'id:password'.</msg>
-<arg>${LOCATOR_MDP}</arg>
-<arg>${MDP}</arg>
-<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2025-03-26T11:29:31.094848" elapsed="0.121439"/>
-</kw>
-<arg>${MDP}</arg>
-<status status="PASS" start="2025-03-26T11:29:31.094104" elapsed="0.122408"/>
+<kw name="Input Password" owner="SeleniumLibrary">
+<msg time="2025-03-26T11:35:19.347751" level="INFO">Typing password into text field 'id:password'.</msg>
+<msg time="2025-03-26T11:35:19.393659" level="INFO">Temporally setting log level to: NONE</msg>
+<arg>id:password</arg>
+<arg>bhbhbuiknjpllj</arg>
+<doc>Types the given password into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-03-26T11:35:19.346922" elapsed="0.117947"/>
 </kw>
 <kw name="Cliquer sur login" owner="resource">
 <kw name="Click Button" owner="SeleniumLibrary">
-<msg time="2025-03-26T11:29:31.218109" level="INFO">Clicking button 'id:login-button'.</msg>
+<msg time="2025-03-26T11:35:19.466915" level="INFO">Clicking button 'id:login-button'.</msg>
 <arg>${LOCATOR_BUTTON}</arg>
 <doc>Clicks the button identified by ``locator``.</doc>
-<status status="PASS" start="2025-03-26T11:29:31.217534" elapsed="0.143188"/>
+<status status="PASS" start="2025-03-26T11:35:19.466134" elapsed="0.094328"/>
 </kw>
-<status status="PASS" start="2025-03-26T11:29:31.217033" elapsed="0.143929"/>
+<status status="PASS" start="2025-03-26T11:35:19.465555" elapsed="0.095132"/>
 </kw>
-<kw name="Verifier la page d'accueil" owner="resource">
+<kw name="Verifier le message d'erreur" owner="resource">
 <kw name="Get Text" owner="SeleniumLibrary">
-<msg time="2025-03-26T11:29:31.393352" level="INFO">${text} = Products</msg>
+<msg time="2025-03-26T11:35:19.591370" level="INFO">${text} = Epic sadface: Username and password do not match any user in this service</msg>
 <var>${text}</var>
-<arg>class:title</arg>
+<arg>${error_message}</arg>
 <doc>Returns the text value of the element identified by ``locator``.</doc>
-<status status="PASS" start="2025-03-26T11:29:31.362436" elapsed="0.031132"/>
+<status status="PASS" start="2025-03-26T11:35:19.561899" elapsed="0.029792"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>'message: ${text}'</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-03-26T11:35:19.591997" elapsed="0.000769"/>
 </kw>
 <kw name="Should Be Equal As Strings" owner="BuiltIn">
 <arg>${text}</arg>
-<arg>Products</arg>
+<arg>Epic sadface: Username and password do not match any user in this service</arg>
 <doc>Fails if objects are unequal after converting them to strings.</doc>
-<status status="PASS" start="2025-03-26T11:29:31.393854" elapsed="0.000387"/>
+<status status="PASS" start="2025-03-26T11:35:19.593175" elapsed="0.000545"/>
 </kw>
 <kw name="Log To Console" owner="BuiltIn">
 <arg>${text}</arg>
 <doc>Logs the given message to the console.</doc>
-<status status="PASS" start="2025-03-26T11:29:31.394463" elapsed="0.000634"/>
+<status status="PASS" start="2025-03-26T11:35:19.594047" elapsed="0.000534"/>
 </kw>
-<status status="PASS" start="2025-03-26T11:29:31.361555" elapsed="0.034054"/>
+<status status="PASS" start="2025-03-26T11:35:19.561358" elapsed="0.033477"/>
 </kw>
 <kw name="Close Browser" owner="SeleniumLibrary" type="TEARDOWN">
 <doc>Closes the current browser.</doc>
-<status status="PASS" start="2025-03-26T11:29:31.397172" elapsed="2.183089"/>
+<status status="PASS" start="2025-03-26T11:35:19.595519" elapsed="2.161925"/>
 </kw>
 <doc>login avec valid cred</doc>
 <tag>login</tag>
 <tag>smoke</tag>
-<status status="PASS" start="2025-03-26T11:29:28.285848" elapsed="5.295460"/>
+<status status="PASS" start="2025-03-26T11:35:17.560409" elapsed="4.199341"/>
 </test>
-<status status="PASS" start="2025-03-26T11:29:27.704091" elapsed="5.879039"/>
+<status status="PASS" start="2025-03-26T11:35:17.169299" elapsed="4.597747"/>
 </suite>
 <statistics>
 <total>
